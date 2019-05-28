@@ -8,12 +8,12 @@
     <ProductVersion>
     </ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{B45CEAA0-5CC3-41FD-8EDA-B8AAA1AED5BD}</ProjectGuid>
+    <ProjectGuid>{4D9DE985-F615-4D4B-AC25-AD4927A66C00}</ProjectGuid>
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>PazzoProject_01</RootNamespace>
-    <AssemblyName>PazzoProject_01</AssemblyName>
+    <RootNamespace>DBModel</RootNamespace>
+    <AssemblyName>DBModel</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
@@ -45,10 +45,18 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -151,6 +159,120 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Alphabetical_list_of_products.cs">
+      <DependentUpon>NorthDb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Categories.cs">
+      <DependentUpon>NorthDb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Category_Sales_for_1997.cs">
+      <DependentUpon>NorthDb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Current_Product_List.cs">
+      <DependentUpon>NorthDb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CustomerDemographics.cs">
+      <DependentUpon>NorthDb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Customers.cs">
+      <DependentUpon>NorthDb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Customer_and_Suppliers_by_City.cs">
+      <DependentUpon>NorthDb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CustOrderHist_Result.cs">
+      <DependentUpon>NorthDb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CustOrdersDetail_Result.cs">
+      <DependentUpon>NorthDb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CustOrdersOrders_Result.cs">
+      <DependentUpon>NorthDb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Employees.cs">
+      <DependentUpon>NorthDb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Employee_Sales_by_Country_Result.cs">
+      <DependentUpon>NorthDb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Invoices.cs">
+      <DependentUpon>NorthDb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\NorthDb.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>NorthDb.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\NorthDb.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>NorthDb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\NorthDb.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>NorthDb.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Orders.cs">
+      <DependentUpon>NorthDb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Orders_Qry.cs">
+      <DependentUpon>NorthDb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Order_Details.cs">
+      <DependentUpon>NorthDb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Order_Details_Extended.cs">
+      <DependentUpon>NorthDb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Order_Subtotals.cs">
+      <DependentUpon>NorthDb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Products.cs">
+      <DependentUpon>NorthDb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Products_Above_Average_Price.cs">
+      <DependentUpon>NorthDb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Products_by_Category.cs">
+      <DependentUpon>NorthDb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Product_Sales_for_1997.cs">
+      <DependentUpon>NorthDb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Region.cs">
+      <DependentUpon>NorthDb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SalesByCategory_Result.cs">
+      <DependentUpon>NorthDb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Sales_by_Category.cs">
+      <DependentUpon>NorthDb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Sales_by_Year_Result.cs">
+      <DependentUpon>NorthDb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Sales_Totals_by_Amount.cs">
+      <DependentUpon>NorthDb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Shippers.cs">
+      <DependentUpon>NorthDb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Summary_of_Sales_by_Quarter.cs">
+      <DependentUpon>NorthDb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Summary_of_Sales_by_Year.cs">
+      <DependentUpon>NorthDb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Suppliers.cs">
+      <DependentUpon>NorthDb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Ten_Most_Expensive_Products_Result.cs">
+      <DependentUpon>NorthDb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Territories.cs">
+      <DependentUpon>NorthDb.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -162,10 +284,27 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Models\NorthDb.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>NorthDb.Context.cs</LastGenOutput>
+      <DependentUpon>NorthDb.edmx</DependentUpon>
+    </Content>
+    <Content Include="Models\NorthDb.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>NorthDb.edmx</DependentUpon>
+      <LastGenOutput>NorthDb.cs</LastGenOutput>
+    </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <EntityDeploy Include="Models\NorthDb.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>NorthDb.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\NorthDb.edmx.diagram">
+      <DependentUpon>NorthDb.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
@@ -195,7 +334,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -211,10 +349,7 @@
     <Content Include="Scripts\jquery-3.3.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\DBModel\DBModel.csproj">
-      <Project>{4d9de985-f615-4d4b-ac25-ad4927a66c00}</Project>
-      <Name>DBModel</Name>
-    </ProjectReference>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
@@ -232,9 +367,9 @@
         <WebProjectProperties>
           <UseIIS>True</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>58475</DevelopmentServerPort>
+          <DevelopmentServerPort>59043</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:58475/</IISUrl>
+          <IISUrl>http://localhost:59043/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

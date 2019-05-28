@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.28010.2016
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PazzoProject_01", "PazzoProject_01\PazzoProject_01.csproj", "{B45CEAA0-5CC3-41FD-8EDA-B8AAA1AED5BD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DBModel", "DBModel\DBModel.csproj", "{4D9DE985-F615-4D4B-AC25-AD4927A66C00}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{B45CEAA0-5CC3-41FD-8EDA-B8AAA1AED5BD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B45CEAA0-5CC3-41FD-8EDA-B8AAA1AED5BD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B45CEAA0-5CC3-41FD-8EDA-B8AAA1AED5BD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4D9DE985-F615-4D4B-AC25-AD4927A66C00}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4D9DE985-F615-4D4B-AC25-AD4927A66C00}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4D9DE985-F615-4D4B-AC25-AD4927A66C00}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4D9DE985-F615-4D4B-AC25-AD4927A66C00}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
