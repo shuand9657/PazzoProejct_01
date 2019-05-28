@@ -1,0 +1,32 @@
+﻿@model PazzoProject_01.Controllers.ProductModel
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<table class="table table-bordered">
+    <thead>
+    <tr>
+        @*<th>Product ID</th>*@
+        <th>Name</th>
+        <th>Address</th>
+        <th>Phone</th>
+        <th>Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var item in Model.CustomerItems)
+    {
+        <tr>
+            @*<th scope="row">@item.CustomerID</th>*@
+            <td>@item.ContactName</td>
+            <td>@item.Address</td>
+            <td>@item.Phone</td>
+            <td><a data-value="@item.CustomerID" 
+
+                   href="javascript:void(0)" class="btnEdit">Edit</a></td>
+        </tr> 
+    }
+    </tbody>
+</table>
