@@ -10,7 +10,7 @@ namespace PazzoProject_01.Controllers
     public class EFCustomerController : Controller
     {
         // GET: EFCustomer
-        public ActionResult Index(int? pageNumber)
+        public ActionResult Index(string pageNumber)
         {
             Customers customers = new Customers();
             ProductModel model = new ProductModel();

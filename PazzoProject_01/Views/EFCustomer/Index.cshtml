@@ -24,9 +24,20 @@
             <td>@item.Address</td>
             <td>@item.Phone</td>
             <td><a data-value="@item.CustomerID" 
-
                    href="javascript:void(0)" class="btnEdit">Edit</a></td>
         </tr> 
     }
     </tbody>
+    <tfoot>
+        <tr>
+            <td>
+                @{ for (int i = 1; i <= Model.PageCount; i++)
+                    {
+                        <a href="@Url.Action("Index")/?pageNumber=@i">@i.ToString()</a>
+                    }
+
+                }
+            </td>
+        </tr>
+    </tfoot>
 </table>
