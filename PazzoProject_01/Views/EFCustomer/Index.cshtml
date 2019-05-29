@@ -3,41 +3,47 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>Created using EF</h2>
 
-<table class="table table-bordered">
-    <thead>
-    <tr>
-        @*<th>Product ID</th>*@
-        <th>Name</th>
-        <th>Address</th>
-        <th>Phone</th>
-        <th>Action</th>
-    </tr>
-    </thead>
-    <tbody>
+<div class="row col-lg-12">
+    <div class="col-sm-2">
+        Name
+    </div>
+    <div class="col-sm-4">
+        Address
+    </div>
+    <div class="col-sm-2">
+        Phone
+    </div>
+    <div class="col-sm-4">
+        Action
+    </div>
+</div>
+<div class="row col-lg-12">
     @foreach (var item in Model.CustomerItems)
     {
-        <tr>
-            @*<th scope="row">@item.CustomerID</th>*@
-            <td>@item.ContactName</td>
-            <td>@item.Address</td>
-            <td>@item.Phone</td>
-            <td><a data-value="@item.CustomerID" 
-                   href="javascript:void(0)" class="btnEdit">Edit</a></td>
-        </tr> 
+        <div class="col-sm-2">
+            @item.ContactName
+        </div>
+        <div class="col-sm-4">
+            @item.Address
+        </div>
+        <div class="col-sm-2">
+            @item.Phone
+        </div>
+        <div class="col-sm-4">
+            <a data-value="@item.CustomerID" 
+               href="javascript:void(0)" class="btn btn-default">Edit</a>
+        </div>
     }
-    </tbody>
-    <tfoot>
-        <tr>
-            <td>
-                @{ for (int i = 1; i <= Model.PageCount; i++)
-                    {
-                        <a href="@Url.Action("Index")/?pageNumber=@i">@i.ToString()</a>
-                    }
+</div>
+<div class="row col-lg-12">
+    <div class="col-sm-12">
+        @{ for (int i = 1; i <= Model.PageCount; i++)
+           {
+               <a href="@Url.Action("Index", new {pageNumber = i})">@i.ToString()</a>
+           }
 
-                }
-            </td>
-        </tr>
-    </tfoot>
-</table>
+        }
+    </div>
+</div>

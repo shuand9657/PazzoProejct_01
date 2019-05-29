@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PazzoProject_01", "PazzoPro
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DBModel", "DBModel\DBModel.csproj", "{4D9DE985-F615-4D4B-AC25-AD4927A66C00}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DBRepostitory", "DBRepostitory\DBRepostitory.csproj", "{804766DF-619F-4BD3-B2E0-AC25D56207C8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{4D9DE985-F615-4D4B-AC25-AD4927A66C00}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4D9DE985-F615-4D4B-AC25-AD4927A66C00}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4D9DE985-F615-4D4B-AC25-AD4927A66C00}.Release|Any CPU.Build.0 = Release|Any CPU
+		{804766DF-619F-4BD3-B2E0-AC25D56207C8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{804766DF-619F-4BD3-B2E0-AC25D56207C8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{804766DF-619F-4BD3-B2E0-AC25D56207C8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{804766DF-619F-4BD3-B2E0-AC25D56207C8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

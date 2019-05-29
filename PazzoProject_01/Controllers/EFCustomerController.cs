@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using DBModel.Models;
+using DBRepostitory.Models;
+using PazzoProject_01.Utility;
 
 namespace PazzoProject_01.Controllers
 {
-    public class EFCustomerController : Controller
+    public class EFCustomerController : BaseController
     {
         // GET: EFCustomer
         public ActionResult Index(string pageNumber)
@@ -16,8 +17,7 @@ namespace PazzoProject_01.Controllers
             ProductModel model = new ProductModel();
             model.PageSize = 10;
             model.PageNumber = pageNumber == null ? 1 : Convert.ToInt32(pageNumber);
-
-            NorthwindEntities db = new NorthwindEntities();
+            
             model.CustomerItems =  db.Customers.OrderBy(x => x.CustomerID)
                 ?.Skip(model.PageSize * (model.PageNumber - 1))
                 .Take(model.PageSize).ToList();
