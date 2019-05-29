@@ -1,0 +1,16 @@
+﻿@model IEnumerable<DBRepostitory.Models.Customers>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<div class="row">
+    @foreach(var item in Model.ToList())
+    {
+        <div class="col-sm-4">@item.ContactName</div>
+        <div class="col-sm-4">@item.Address</div>
+        <div class="col-sm-4">@item.Phone</div>
+    }
+
+</div>

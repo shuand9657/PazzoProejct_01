@@ -50,6 +50,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Implement\CustomerRepository.cs" />
     <Compile Include="Models\Alphabetical_list_of_products.cs">
       <DependentUpon>NorthwindModels.tt</DependentUpon>
     </Compile>
@@ -193,6 +194,10 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Interface\Interface\" />
+    <Folder Include="Utility\Interface\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
