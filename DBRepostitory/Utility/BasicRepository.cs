@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
@@ -33,6 +34,22 @@ namespace DBRepostitory.Utility
         public IQueryable<T> Selects()
         {
             return db.Set<T>().AsQueryable();
+        }
+
+        public void Update(T entity)
+        {
+            if (entity != null)
+            {
+                db.Entry(entity).State = EntityState.Modified;
+            }
+        }
+
+        public void Delete(T entity)
+        {
+            if (entity != null)
+            {
+                db.Entry(entity).State = EntityState.Deleted;
+            }
         }
     }
 }
