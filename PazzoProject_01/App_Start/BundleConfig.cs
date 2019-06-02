@@ -25,6 +25,16 @@ namespace PazzoProject_01
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/site.css"));
+
+            bundles.Add(new ScriptBundle("~/bundles/Kendo").Include(
+                //"~/Scripts/kendo/js/jquery.min.js",
+                    "~/Scripts/kendo/js/kendo.all.min.js",
+                    "~/Scripts/kendo/js/kendo.aspnetmvc.min.js"
+                ));
+            bundles.Add(new StyleBundle("~/Content/kendo/css").Include(
+                    "~/Content/kendo/styles/kendo.common-bootstrap.min.css",
+                    "~/Content/kendo/styles/kendo.bootstrap.min.css"));
+            bundles.IgnoreList.Clear();
         }
     }
 }

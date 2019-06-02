@@ -6,11 +6,76 @@
 <h2>Index</h2>
 
 <div class="row">
-    @foreach(var item in Model.ToList())
-    {
-        <div class="col-sm-4">@item.ContactName</div>
-        <div class="col-sm-4">@item.Address</div>
-        <div class="col-sm-4">@item.Phone</div>
-    }
+
+    <div id="grid"></div>
+
+    @*@foreach(var item in Model.ToList())
+        {
+            <div class="col-sm-4">@item.ContactName</div>
+            <div class="col-sm-4">@item.Address</div>
+            <div class="col-sm-4">@item.Phone</div>
+        }*@
 
 </div>
+
+@section Scripts{
+
+    <script>
+        let $grid = $("#grid")  ;
+
+        $(document).ready(onReady);
+
+        function onReady() {
+
+            funGetQuery()
+
+        }
+
+        function funGetQuery() {
+            $grid.kendoGrid({
+                dataSource: getGridDataSource,
+                toolbar:["create"],
+                columns: [
+                    {
+                        field: "ContactName",
+                        title: "Contact Name",
+                        width: "120px"
+                    },
+                    {
+                        field: "Address",
+                        title: "Address",
+                        width: "120px"
+                    },
+                    {
+                        field: "Phone",
+                        title: "Phone",
+                        width: "120px"
+                    },
+
+                ]
+            })
+        }
+
+        function getGridDataSource() {
+            let dataSource = new kendo.data.DataSource({
+                transport: {
+                    read: {
+                        url: "@Url.Action("GetCustomerList")",
+                        dataType: "json",
+                        type:"post"
+                    }
+                },
+                pageSize: 10,
+                schema: {
+                    data: "data",
+                    total: "total"
+                }
+            });
+
+            return dataSource;
+        }
+
+    </script>
+
+
+}
