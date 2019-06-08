@@ -48,6 +48,15 @@ namespace DBRepostitory.Utility
         }
 
         /// <summary>
+        /// 更新一筆Entity內容。
+        /// </summary>
+        /// <param name="entity">要更新的內容</param>
+        public void Update(T entity)
+        {
+            db.Entry<T>(entity).State = EntityState.Modified;
+        }
+
+        /// <summary>
         /// 更新一筆資料的內容。
         /// </summary>
         /// <param name="entity">要更新的內容</param>

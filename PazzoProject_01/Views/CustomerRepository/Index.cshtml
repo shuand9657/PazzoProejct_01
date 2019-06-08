@@ -33,8 +33,68 @@
 
         function funGetQuery() {
             $grid.kendoGrid({
-                dataSource: getGridDataSource,
-                toolbar:["create"],
+                dataSource: {
+                    transport: {
+                        read: {
+                            url: "@Url.Action("GetCustomerList")",
+                            dataType: "json",
+                            type: "post",
+
+                        },
+                        create: {
+                            url: "@Url.Action("SaveCustomer")",
+                            dataType: "JSON",
+                            type:"POST"
+                        },
+                        update: {
+                            url: "@Url.Action("SaveCustomer")",
+                            dataType: "JSON",
+                            type:"POST"
+                        },
+                        destroy: {
+                             url: "@Url.Action("DeleteCustomer")",
+                            dataType: "JSON",
+                            type:"POST"
+                        }
+                    },
+                    schema: {
+                        data: function (e) {
+                            return e.data;
+                        },
+                        total: function (e) {
+                            return e.total
+                        },
+                        model: {
+                            id: "CustomerID",
+                            field: {
+                                CutomerID: {
+                                    ediable: false,
+                                    nullable: true
+                                },
+                                ContactName: {
+                                    validation: { required: true }
+                                },
+                                Address: { type: "text" },
+                                Phone: { type: "text" }
+                            }
+                        }
+                    },
+                    pageSize: 10,
+                    serverPaging: true,
+                    serverFiltering: true,
+                    serverSorting: true
+                },
+                batch:true,
+                toolbar: ["create"],
+                groupable: true,
+                sortable: true,
+                pageable: {
+                    refresh: true,
+                    //pageSizes: true,
+                    buttonCount: 5,
+                    pageSizes: [5, 10, 20, 100]
+                },
+                editable: "inline",
                 columns: [
                     {
                         field: "ContactName",
@@ -49,30 +109,15 @@
                     {
                         field: "Phone",
                         title: "Phone",
-                        width: "120px"
+                        width: "120px",
                     },
-
+                    {
+                        command: ["edit", "destroy"],
+                        title: "&nbsp;",
+                        width: "250px"
+                    }
                 ]
             })
-        }
-
-        function getGridDataSource() {
-            let dataSource = new kendo.data.DataSource({
-                transport: {
-                    read: {
-                        url: "@Url.Action("GetCustomerList")",
-                        dataType: "json",
-                        type:"post"
-                    }
-                },
-                pageSize: 10,
-                schema: {
-                    data: "data",
-                    total: "total"
-                }
-            });
-
-            return dataSource;
         }
 
     </script>
