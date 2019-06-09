@@ -11,7 +11,7 @@ using System.ComponentModel.DataAnnotations;
 namespace DBRepostitory.ViewModel
 {
     
-    public class CustomerVM
+    public class CustomerViewModel
     {
         public string CustomerID { get; set; }
         public string CompanyName { get; set; }

@@ -170,7 +170,7 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utility\BasicRepository.cs" />
-    <Compile Include="ViewModel\CustomerVM.cs" />
+    <Compile Include="ViewModel\CustomerViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <EntityDeploy Include="Models\NorthwindModels.edmx">
@@ -202,6 +202,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Interface\Interface\" />
+    <Folder Include="Profile\" />
     <Folder Include="Utility\Interface\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

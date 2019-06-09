@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
+using AutoMapper;
 using DBRepostitory.Implement;
 using DBRepostitory.Models;
 using DBRepostitory.ViewModel;
@@ -18,8 +19,8 @@ namespace PazzoProject_01.Controllers
         public CustomerRepositoryController()
         {
             _res = new CustomerRepository<Customers>();
-            
         }
+
         // GET: CustomerRepository
         public ActionResult Index()
         {
@@ -37,7 +38,7 @@ namespace PazzoProject_01.Controllers
             {
                 var customers = _res.Selects().AsQueryable();
                 int count = customers.Count();
-                var result = customers.OrderBy(x => x.CustomerID).Select(x=> new CustomerVM() {
+                var result = customers.OrderBy(x => x.CustomerID).Select(x=> new CustomerViewModel() {
                      CustomerID = x.CustomerID,
                      ContactName= x.ContactName,
                      Phone = x.Phone,
@@ -52,29 +53,35 @@ namespace PazzoProject_01.Controllers
             }
         }
 
-        public async Task<JsonResult> SaveCustomer(CustomerVM detail)
+        public async Task<JsonResult> SaveCustomer(CustomerViewModel detail)
         {
             try
             {
                 if (ModelState.IsValid)
                 {
-                    Customers data = new Customers()
-                    {
-                        //Phone = "09-123456789",
-                        PostalCode = "313",
-                        Fax = "09-123456777",
-                        Region = "Here",
-                        CompanyName = "Name1=1",
-                        City = "City",
-                        ContactTitle = "Mr",
-                        Country = "Country",
-                        Phone = detail.Phone,
-                        Address = detail.Address,
-                        CustomerID = detail.CustomerID,
-                        ContactName = detail.ContactName
-                    };
+                    //Customers data = new Customers()
+                    //{
+                    //    //Phone = "09-123456789",
+                    //    PostalCode = "313",
+                    //    Fax = "09-123456777",
+                    //    Region = "Here",
+                    //    CompanyName = "Name1=1",
+                    //    City = "City",
+                    //    ContactTitle = "Mr",
+                    //    Country = "Country",
+                    //    Phone = detail.Phone,
+                    //    Address = detail.Address,
+                    //    CustomerID = detail.CustomerID,
+                    //    ContactName = detail.ContactName
+                    //};
 
-                    if (string.IsNullOrEmpty(detail.CustomerID))
+                    Mapper.Initialize(cfg=>
+                        cfg.CreateMap<CustomerViewModel, Customers>()
+                    );
+
+                    Customers data = Mapper.Map<Customers>(detail);
+
+                    if (!db.Customers.Any(c => c.CustomerID == data.CustomerID))
                     {
                         data.CustomerID = Guid.NewGuid().ToString().Substring(0, 5);
                         _res.Create(data);
@@ -83,6 +90,7 @@ namespace PazzoProject_01.Controllers
                     {
                         _res.Update(data);
                     }
+
                     _res.SaveChanges();
                 }
 
@@ -94,7 +102,7 @@ namespace PazzoProject_01.Controllers
             }
         }
 
-        public async Task<JsonResult> DeleteCustomer(CustomerVM detail)
+        public async Task<JsonResult> DeleteCustomer(CustomerViewModel detail)
         {
             try
             {
