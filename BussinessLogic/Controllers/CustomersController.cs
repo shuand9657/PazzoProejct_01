@@ -43,11 +43,20 @@ namespace BussinessLogic.Controllers
         {
             try
             {
-                var customerData = _service.Selects().OrderBy(x => x.ContactName);
+                var customerData = _service.Selects().AsQueryable();
 
-                Mapper.Initialize(cfg => { cfg.CreateMap<List<Customers>, List<CustomerViewModel>>(); });
+                var a = customerData.ToList();
+                List<CustomerViewModel> test = new List<CustomerViewModel>();
+                CustomerViewModel b = new CustomerViewModel();
+                foreach(var item in a)
+                {
+                    b = Mapper.Map<CustomerViewModel>(item);
+                    test.Add(b);
+                }
 
-                List<CustomerViewModel> result = Mapper.Map<List<CustomerViewModel>>(customerData);
+                var result = Mapper.Map<List<CustomerViewModel>>(a);
+               
+                //var result = Mapper.Map<List<Customers>, List<CustomerViewModel>>(a);
 
                 //var cfg = new MapperConfigurationExpression(); // 建立設定
                 //cfg.CreateMap<List<CustomerViewModel>, List<Customers>>(); // 對應 <來源,欲修改> 
@@ -60,7 +69,7 @@ namespace BussinessLogic.Controllers
                 ////    cfg.CreateMap<IOrderedQueryable<Customers>, IOrderedQueryable<CustomerViewModel>>(customerData);
                 ////});
 
-                return result;
+                return test;
             }
             catch (Exception e)
             {
